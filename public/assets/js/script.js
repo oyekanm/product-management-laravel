@@ -21,6 +21,7 @@ $(document).ready(function () {
             dataType: "Json",
             success: function (response) {
                 console.log(response)
+                $('#listProducts').load(location.href + ' #listProducts  > *');
             },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  // For CSRF protection

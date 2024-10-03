@@ -8,7 +8,11 @@ use Storage;
 class IndexController extends Controller
 {
     public function index(){
-        return view('index');
+        $prevData = Storage::get("products.json");
+        $decodeData = json_decode($prevData, true);
+
+        // print_r($decodeData);
+        return view('index',['products' => $decodeData]);
     }
 
     public function create(Request $request){
@@ -27,11 +31,6 @@ class IndexController extends Controller
         $encodeData= json_encode($decodeData);
         Storage::put("products.json",$encodeData);
         return response()->json($encodeData);
-
-
-
-        // print_r($request);
-        // return $request;
     }
 
     public function update(){
