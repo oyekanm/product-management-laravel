@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index']);
+Route::post ('/', [IndexController::class, 'create']);
+Route::patch('/', [IndexController::class, 'update']);
